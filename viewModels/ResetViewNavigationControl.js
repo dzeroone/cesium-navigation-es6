@@ -94,6 +94,8 @@ ResetViewNavigationControl.prototype.resetView = function () {
         } catch (e) {
           console.log('Cesium-navigation/ResetViewNavigationControl:   options.defaultResetView Cesium rectangle is  invalid!')
         }
+      } else if(this.terria.options.defaultResetView && typeof this.terria.options.defaultResetView == 'object') {
+        camera.flyTo(this.terria.options.defaultResetView)
       }
     } else if (typeof camera.flyHome === 'function') {
       camera.flyHome(1)
